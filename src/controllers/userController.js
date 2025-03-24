@@ -57,7 +57,7 @@ const userLoginAPI = async(req, res) => {
             }
     
             
-            const token = jwt.sign({ id: checkUser._id }, process.env.JWT_SECRET,  { expiresIn: "10m" })
+            const token = jwt.sign({ id: checkUser._id }, process.env.JWT_SECRET,  { expiresIn: "24h" })
             return res.status(200).json({
                 status : true,
                 message : "Login successfully",
