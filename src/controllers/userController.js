@@ -61,7 +61,8 @@ const userLoginAPI = async(req, res) => {
             return res.status(200).json({
                 status : true,
                 message : "Login successfully",
-                token
+                token,
+                checkUser.type
             })
 
         }
