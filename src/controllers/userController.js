@@ -90,8 +90,36 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getPatientById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const patient = await user.findById(id);
+  
+      if (!patient) {
+        return res.status(404).json({
+          status: false,
+          message: "Patient not found",
+        });
+      }
+  
+      return res.status(200).json({
+        status: true,
+        message: "Patient retrieved successfully",
+        data: patient,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        message: "Error fetching patient details",
+        error: error.message,
+      });
+    }
+  };
+
+
 module.exports = {
     createUserRegisterAPI,
     userLoginAPI,
-    getUsers
+    getUsers,
+    getPatientById
 }
