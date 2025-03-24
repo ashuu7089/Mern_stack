@@ -62,7 +62,7 @@ const userLoginAPI = async(req, res) => {
                 status : true,
                 message : "Login successfully",
                 token,
-                checkUser.type
+                role: checkUser.type
             })
 
         }
