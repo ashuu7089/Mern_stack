@@ -4,7 +4,7 @@ const appointment = require("../controllers/appointmentController");
 const authMiddleware = require("../middlewares/authorization");
 
 
-router.post("/book", authMiddleware, appointment.createAppointmentAPI);
+router.post("/", authMiddleware, appointment.createAppointmentAPI);
 router.get("/", authMiddleware, appointment.getAppointments);
 router.delete("/cancel/:id", authMiddleware, appointment.cancelAppointment);
 
